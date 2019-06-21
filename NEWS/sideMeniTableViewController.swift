@@ -20,6 +20,7 @@ class sideMeniTableViewController: UITableViewController {
 
         menu.delegate=self
         menu.dataSource=self
+        
         tableView.tableFooterView = UIView()
         self.tableView.backgroundColor = UIColor.init(red: 127/255, green: 216/255, blue: 86/255, alpha: 1.0)    // UIColor.init(red: 192/255, green: 1.0, blue: 157/255, alpha: 1.0) 
         

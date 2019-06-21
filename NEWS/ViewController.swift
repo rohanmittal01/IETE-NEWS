@@ -20,146 +20,102 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
    //var imgArr = [#imageLiteral(resourceName: "star"), #imageLiteral(resourceName: "share"), #imageLiteral(resourceName: "about us 2"), #imageLiteral(resourceName: "feedback")]
     
     
-    var articles : [article] = []
+    var articles : [article]? = []
     
     @IBOutlet weak var tableView: UITableView!
     
 
     @IBOutlet var mainView: UIView!
     
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-   //     navBarShadow()
-
-  //      mainView.layer.shadowRadius = 5
-    //    mainView.layer.shadowOpacity = 1
-        fetchHeadlines()
-    }
-    
-    
-    
-    
-    func navBarShadow()
-    {
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 2
-    }
-
-
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-  
-        return self.articles.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "news", for: indexPath) as! articleCell
-    
-    // Configure the cell...
-    
-        cell.title.text = self.articles[indexPath.item].headline
-        cell.author.text = self.articles[indexPath.item].author
-        cell.desc.text = self.articles[indexPath.item].desc
         
-    
-    
-        return cell
+        fetchArticles()
     }
-
     
-    func fetchHeadlines()
-    {
-        let urlRequest = URLRequest(url: URL(string: "https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=33659ed19d2a4799bf1bd8681c478cb8")!)
-        let task = URLSession.shared.dataTask(with: urlRequest) {
-            (data,response,error) in
+    func fetchArticles(){
+        let urlRequest = URLRequest(url: URL(string: "https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=64872d87c2ca48f08e3d576a77a3f252")!)
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data,response,error) in
             
-            if(error != nil)
-            {
+            if error != nil {
                 print(error!)
                 return
             }
             
             self.articles = [article]()
-            
-            do{
+            do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
                 
-                if let articlesFromJson = json["NewsItem"] as? [[String: AnyObject]]
-                {
-                    
-                    for articlesFromJson in articlesFromJson {
-                        
-                        let articles = article()
-                        if let title = articlesFromJson["title"] as? String,
-                        let author = articlesFromJson["author"] as? String,
-                            let desc = articlesFromJson["description"] as? String, let url = articlesFromJson["url"] as? String,let urlToImage = articlesFromJson["urlToImage"] as? String
-                        {
-                            articles.author = author
-                            articles.desc = desc
-                            articles.headline = title
-                            articles.imgUrl = urlToImage
-                            articles.url = url
+                if let articlesFromJson = json["articles"] as? [[String : AnyObject]] {
+                    for articleFromJson in articlesFromJson {
+                        let articless = article()
+                        if let title = articleFromJson["title"] as? String, let author = articleFromJson["author"] as? String, let desc = articleFromJson["description"] as? String, let url = articleFromJson["url"] as? String, let urlToImage = articleFromJson["urlToImage"] as? String {
                             
+                            articless.author = author
+                            articless.desc = desc
+                            articless.headline = title
+                            articless.url = url
+                            articless.imgUrl = urlToImage
                         }
-                        self.articles.append(articles)
-                    
-                        
+                        self.articles?.append(articless)
                     }
-                    
                 }
-              //  DispatchQueue.main.async {
-                    // self.tableView.reloadData()
-             //   }
-               
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 
             } catch let error {
                 print(error)
             }
+            
+            
         }
         
-   //     task.resume()
+        task.resume()
         
     }
-
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! articleCell
+        
+        cell.title.text = self.articles?[indexPath.item].headline
+        cell.desc.text = self.articles?[indexPath.item].desc
+        cell.author.text = self.articles?[indexPath.item].author
+        cell.imgView.downloadImage(from: (self.articles?[indexPath.item].imgUrl!)!)
+        
+        return cell
+    }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.articles?.count ?? 0
+    }
     
-    
-    
-    
-    
-
 }
 
+extension UIImageView {
+    
+    func downloadImage(from url: String){
+        
+        let urlRequest = URLRequest(url: URL(string: url)!)
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data,response,error) in
+            
+            if error != nil {
+                print(error)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data!)
+            }
+        }
+        task.resume()
+    }
+}
 
-
-
-//extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate
-//{
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return imgArr.count
-//    }
-//
-////    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-////       // var cell = sliderCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? DataCollectionViewCell
-////     //   cell?.img.image =
-////        return
-////    }
-//
-//}
-//
-//

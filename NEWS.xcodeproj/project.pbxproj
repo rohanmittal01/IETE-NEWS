@@ -16,6 +16,7 @@
 		BA282ACF22B16E6E00124251 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA282ACD22B16E6E00124251 /* LaunchScreen.storyboard */; };
 		BA282AD722B16ECD00124251 /* sideMeniTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA282AD622B16ECD00124251 /* sideMeniTableViewController.swift */; };
 		BA29BE6522B7CB6D009FBC6F /* addPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA29BE6422B7CB6D009FBC6F /* addPostViewController.swift */; };
+		BA29BE6722B7D645009FBC6F /* newsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA29BE6622B7D645009FBC6F /* newsDetailsViewController.swift */; };
 		BAAB2500A9FAE33DD71EF0D8 /* Pods_NEWS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF7D35DF3B4AB92B9820812 /* Pods_NEWS.framework */; };
 		BADEF0C122B610F1003BAD97 /* loginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADEF0C022B610F1003BAD97 /* loginPageViewController.swift */; };
 		BADEF0CB22B65DDE003BAD97 /* articleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADEF0CA22B65DDE003BAD97 /* articleCell.swift */; };
@@ -37,6 +38,7 @@
 		BA282AD022B16E6E00124251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA282AD622B16ECD00124251 /* sideMeniTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideMeniTableViewController.swift; sourceTree = "<group>"; };
 		BA29BE6422B7CB6D009FBC6F /* addPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPostViewController.swift; sourceTree = "<group>"; };
+		BA29BE6622B7D645009FBC6F /* newsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsDetailsViewController.swift; sourceTree = "<group>"; };
 		BADEF0C022B610F1003BAD97 /* loginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPageViewController.swift; sourceTree = "<group>"; };
 		BADEF0CA22B65DDE003BAD97 /* articleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = articleCell.swift; sourceTree = "<group>"; };
 		BADEF0CC22B65E46003BAD97 /* article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = article.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				BADEF0CA22B65DDE003BAD97 /* articleCell.swift */,
 				BADEF0CC22B65E46003BAD97 /* article.swift */,
 				BA282AD622B16ECD00124251 /* sideMeniTableViewController.swift */,
+				BA29BE6622B7D645009FBC6F /* newsDetailsViewController.swift */,
 				BAD8298122B762C7005BAE3A /* settings page */,
 				BA282ACD22B16E6E00124251 /* LaunchScreen.storyboard */,
 				BA29BE6422B7CB6D009FBC6F /* addPostViewController.swift */,
@@ -245,6 +248,7 @@
 				BADEF0CD22B65E46003BAD97 /* article.swift in Sources */,
 				BA282AD722B16ECD00124251 /* sideMeniTableViewController.swift in Sources */,
 				BA282AC522B16E6D00124251 /* AppDelegate.swift in Sources */,
+				BA29BE6722B7D645009FBC6F /* newsDetailsViewController.swift in Sources */,
 				BADEF0CB22B65DDE003BAD97 /* articleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
