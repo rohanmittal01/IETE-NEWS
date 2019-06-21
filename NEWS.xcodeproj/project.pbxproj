@@ -21,6 +21,8 @@
 		BADEF0C122B610F1003BAD97 /* loginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADEF0C022B610F1003BAD97 /* loginPageViewController.swift */; };
 		BADEF0CB22B65DDE003BAD97 /* articleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADEF0CA22B65DDE003BAD97 /* articleCell.swift */; };
 		BADEF0CD22B65E46003BAD97 /* article.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADEF0CC22B65E46003BAD97 /* article.swift */; };
+		BAF92C5722BCFB8200892253 /* webViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF92C5622BCFB8200892253 /* webViewViewController.swift */; };
+		BAF92C5922BD253700892253 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF92C5822BD253700892253 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		BADEF0C022B610F1003BAD97 /* loginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPageViewController.swift; sourceTree = "<group>"; };
 		BADEF0CA22B65DDE003BAD97 /* articleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = articleCell.swift; sourceTree = "<group>"; };
 		BADEF0CC22B65E46003BAD97 /* article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = article.swift; sourceTree = "<group>"; };
+		BAF92C5622BCFB8200892253 /* webViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webViewViewController.swift; sourceTree = "<group>"; };
+		BAF92C5822BD253700892253 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAF92C5922BD253700892253 /* WebKit.framework in Frameworks */,
 				BAAB2500A9FAE33DD71EF0D8 /* Pods_NEWS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +64,7 @@
 		24F6EB48779D1AEAF6795788 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAF92C5822BD253700892253 /* WebKit.framework */,
 				8FF7D35DF3B4AB92B9820812 /* Pods_NEWS.framework */,
 			);
 			name = Frameworks;
@@ -97,6 +103,7 @@
 				BA282AC422B16E6D00124251 /* AppDelegate.swift */,
 				BA282AC622B16E6D00124251 /* ViewController.swift */,
 				BA02AC5322B4E15000287A1F /* newsTableViewController.swift */,
+				BAF92C5622BCFB8200892253 /* webViewViewController.swift */,
 				BA282AC822B16E6D00124251 /* Main.storyboard */,
 				BADEF0CA22B65DDE003BAD97 /* articleCell.swift */,
 				BADEF0CC22B65E46003BAD97 /* article.swift */,
@@ -249,6 +256,7 @@
 				BA282AD722B16ECD00124251 /* sideMeniTableViewController.swift in Sources */,
 				BA282AC522B16E6D00124251 /* AppDelegate.swift in Sources */,
 				BA29BE6722B7D645009FBC6F /* newsDetailsViewController.swift in Sources */,
+				BAF92C5722BCFB8200892253 /* webViewViewController.swift in Sources */,
 				BADEF0CB22B65DDE003BAD97 /* articleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

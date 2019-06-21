@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fjX-b1-xb5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fjX-b1-xb5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,7 +72,7 @@
                                                         <constraint firstAttribute="height" constant="120" id="nYF-Em-h3J"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE HEADLINE!!! TITLE HEADLINE!!! TITLE HEADLINE!!! TITLE HEADLINE!!!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eab-WG-ryq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE HEADLINE!!! TITLE HEADLINE!!! TITLE HEADLINE!!! TITLE HEADLINE!!!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eab-WG-ryq">
                                                     <rect key="frame" x="138" y="13" width="227" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Yaz-KV-ohw"/>
@@ -123,6 +123,7 @@
                                             <outlet property="desc" destination="3wD-Tg-uZP" id="qSP-rE-cf5"/>
                                             <outlet property="imgView" destination="hzB-GU-jAp" id="4gE-RF-vzY"/>
                                             <outlet property="title" destination="eab-WG-ryq" id="l2x-Nc-uWU"/>
+                                            <segue destination="PXX-yZ-ZJJ" kind="show" identifier="segue" id="0TE-Hb-QZK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -295,6 +296,64 @@
             </objects>
             <point key="canvasLocation" x="3768.8000000000002" y="1009.7451274362819"/>
         </scene>
+        <!--Web View View Controller-->
+        <scene sceneID="Q8S-25-z8q">
+            <objects>
+                <viewController id="PXX-yZ-ZJJ" customClass="webViewViewController" customModule="NEWS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Xt-0h-45T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5a-VK-Q76">
+                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slt-NY-Z0o">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlf-AT-kYe">
+                                        <rect key="frame" x="22" y="16" width="62" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="&lt;Back">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="byK-AX-B5T" kind="show" id="q8E-99-Onr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.49880957599999998" green="0.84600704910000002" blue="0.33911013600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="zlf-AT-kYe" firstAttribute="top" secondItem="slt-NY-Z0o" secondAttribute="top" constant="16" id="Aag-sk-OMh"/>
+                                    <constraint firstItem="zlf-AT-kYe" firstAttribute="leading" secondItem="slt-NY-Z0o" secondAttribute="leading" constant="22" id="Gae-kv-T23"/>
+                                    <constraint firstAttribute="height" constant="55" id="bnW-Oh-NTB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k5a-VK-Q76" firstAttribute="leading" secondItem="89A-75-DcU" secondAttribute="leading" id="E5f-hk-rdM"/>
+                            <constraint firstItem="k5a-VK-Q76" firstAttribute="bottom" secondItem="89A-75-DcU" secondAttribute="bottom" id="FK5-1v-hdV"/>
+                            <constraint firstItem="slt-NY-Z0o" firstAttribute="top" secondItem="1Xt-0h-45T" secondAttribute="top" id="IfZ-Zd-bys"/>
+                            <constraint firstItem="slt-NY-Z0o" firstAttribute="trailing" secondItem="89A-75-DcU" secondAttribute="trailing" id="SM0-tK-zHh"/>
+                            <constraint firstItem="k5a-VK-Q76" firstAttribute="top" secondItem="slt-NY-Z0o" secondAttribute="bottom" id="f1b-NA-1Xu"/>
+                            <constraint firstItem="slt-NY-Z0o" firstAttribute="leading" secondItem="89A-75-DcU" secondAttribute="leading" id="iJV-p0-Rwf"/>
+                            <constraint firstItem="k5a-VK-Q76" firstAttribute="trailing" secondItem="89A-75-DcU" secondAttribute="trailing" id="ueu-qX-WWW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="89A-75-DcU"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="k5a-VK-Q76" id="pU1-cL-Wvm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KpO-ci-zTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5056.8000000000002" y="1016.9415292353824"/>
+        </scene>
         <!--NEWS APP MENU-->
         <scene sceneID="CNt-JQ-1NF">
             <objects>
@@ -365,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrK-B3-izC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7006" y="854"/>
+            <point key="canvasLocation" x="6897" y="931"/>
         </scene>
         <!--Add Post View Controller-->
         <scene sceneID="mwp-Of-wae">
@@ -429,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90h-7r-ioG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7006" y="-613"/>
+            <point key="canvasLocation" x="7006" y="-734"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="dFm-ff-NEZ">
@@ -631,7 +690,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MO2-u7-oc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JyQ-b6-EDZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7006" y="134"/>
+            <point key="canvasLocation" x="6897" y="134"/>
         </scene>
         <!--Login Page View Controller-->
         <scene sceneID="OCB-Gl-LkS">
@@ -729,7 +788,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6A1-8Q-sE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7802" y="134"/>
+            <point key="canvasLocation" x="7655" y="134"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="SXG-dr-aLT">
@@ -748,7 +807,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K9W-Fn-Wz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4927" y="134"/>
+            <point key="canvasLocation" x="4858" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R1H-uI-eSw">
@@ -784,7 +843,7 @@
         <image name="star" width="718.5" height="683.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CLl-GA-EIj"/>
-        <segue reference="cEK-7g-Zre"/>
+        <segue reference="c30-pD-WbR"/>
+        <segue reference="q8E-99-Onr"/>
     </inferredMetricsTieBreakers>
 </document>

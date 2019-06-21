@@ -27,15 +27,19 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
 
     @IBOutlet var mainView: UIView!
     
+    
+    var indexPos = 0
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.delegate = self
+        tableView.dataSource = self
         fetchArticles()
     }
     
     func fetchArticles(){
-        let urlRequest = URLRequest(url: URL(string: "https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=64872d87c2ca48f08e3d576a77a3f252")!)
+        let urlRequest = URLRequest(url: URL(string: "https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=33659ed19d2a4799bf1bd8681c478cb8")!)
         
         let task = URLSession.shared.dataTask(with: urlRequest) { (data,response,error) in
             
@@ -58,6 +62,10 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
                             articless.headline = title
                             articless.url = url
                             articless.imgUrl = urlToImage
+                            
+                            
+                            
+                            self.urlString = (articleFromJson["url"] as? String)!
                         }
                         self.articles?.append(articless)
                     }
@@ -78,7 +86,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! articleCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "news", for: indexPath) as! articleCell
         
         cell.title.text = self.articles?[indexPath.item].headline
         cell.desc.text = self.articles?[indexPath.item].desc
@@ -96,7 +104,34 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         return self.articles?.count ?? 0
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        indexPos=indexPath.row
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+    
+    
+    
+    var urlString : String = ""
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! webViewViewController
+        vc.url  = self.urlString
+        
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
 
 extension UIImageView {
     
